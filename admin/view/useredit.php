@@ -18,7 +18,7 @@ if (isset($_POST['save'])){
 	$git = $data['git'];
 	$twitter = $data['twitter'];
 	$result->SetUserEdit($id, $img, $name, $function, $facebook, $git, $twitter);
-	$message = '<div class="alert alert-success" role="alert">Данные успешно сохранены!</div>';
+	echo '<meta http-equiv="refresh" content="0;URL=/admin/users/">';
 }
 
 ?>

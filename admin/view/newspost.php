@@ -9,7 +9,7 @@ if (isset($_POST['save'])){
 	$title = $data['title'];
 	$text = $data['text'];
 	$result->SetNewsEdit($id, $img, $title, $text);
-	$message = '<div class="alert alert-success" role="alert">Данные успешно сохранены!</div>';
+	echo '<meta http-equiv="refresh" content="0;URL=/admin/news/">';
 }
 
 ?>

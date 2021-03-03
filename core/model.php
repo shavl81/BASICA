@@ -126,6 +126,23 @@ class CModel {
 		$sql = "UPDATE `employee` SET `img` = '$img', `name` = '$name', `function` = '$function', `facebook` = '$facebook', `git` = '$git', `twitter` = '$twitter' WHERE `employee`.`id` = '$id'";
 		$res = mysqli_query($this->link, $sql);
 	}
+	public function SetUserAdd($dat) {
+		$user = R::dispense('employee');
+		$user->img = '';
+		$user->name = $dat['name'];
+		$user->function = $dat['function'];
+		$user->date = date("Y-m-d");
+		$user->facebook = $dat['facebook'];
+		$user->git = $dat['git'];
+		$user->twitter = $dat['twitter'];
+		R::store($user);
+	}
+
+	public function GetRecentNews() {
+		$arGetRecentNews = R::getAll('SELECT * FROM news ORDER BY date DESC LIMIT 10');
+		$arGetRecentNews = R::convertToBeans('news', $arGetRecentNews);
+		return $arGetRecentNews;
+	}
 
 	public function SetNewsEdit($id, $img, $title, $text) {
 		$sql = "UPDATE `news` SET `img` = '$img', `title` = '$title', `text` = '$text' WHERE `news`.`id` = '$id'";
@@ -170,13 +187,28 @@ class CModel {
 		return $arEmployee;
 	}
 
+	public function GetCountEmployee() {
+		$employee = R::count('employee');
+		return $employee;
+	}
+
 	public function GetRecentPost() {
-		$sql = 'SELECT * FROM blog ORDER BY date DESC LIMIT 4';
+		$sql = 'SELECT * FROM blog ORDER BY date DESC LIMIT 10';
 		$res = mysqli_query($this->link, $sql);
 		while ($arRes = mysqli_fetch_assoc($res)){
 			$arGetRecentPost[] = $arRes;
 		}
 		return $arGetRecentPost;
+	}
+
+	public function GetCountPost() {
+		$blogCount = R::count('blog');
+		return $blogCount;
+	}
+
+	public function GetCountNews() {
+		$newsCount = R::count('news');
+		return $newsCount;
 	}
 
 	public function GetCategoryPost() {

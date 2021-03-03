@@ -1,3 +1,13 @@
+<?php
+$result = new CController();
+
+if (isset($_POST['send'])){
+    $dat = $_POST;
+    $result->SetUserAdd($dat);
+    echo '<meta http-equiv="refresh" content="0;URL=/admin/users/">';
+}
+
+?>
 		<!--Main Content -->
 		<section class="content">
 
@@ -20,7 +30,9 @@
 	                                </div>
                                 </div>
                                  <div class="col-md-7">
-                                 	<a href="?act=new-user" class="btn btn-info pull-right"><i class="fa fa-user-plus"></i> Добавить</a>
+                                 	<!-- Full width modal -->
+                                <button class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#full-width-modal"><i class="fa  fa-plus"></i> Добавить</button>
+                                <!-- Full width modal -->
                                  </div>
                             </div>
                         </div>
@@ -41,7 +53,7 @@
                                         <a href="?id=<?= $item['id'] ?>" class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <a href="#" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
+                                        <a href="?del=<?= $item['id'] ?>" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
                                             <i class="fa fa-close"></i>
                                         </a>
                                     </div>
@@ -92,6 +104,51 @@
                         </ul>
                     </div>
                 </div>
+                <!-- modal -->
+                <div id="full-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-full">
+                        <div class="modal-content">
+                            <form action="" method="POST">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
+                                    <h4 class="modal-title" id="full-width-modalLabel">Новый пользователь</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <h4>ФИО</h4>
+                                        <input type="text" name="name" id="name" class="form-control">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h4>Должность</h4>
+                                        <input type="text" name="function" id="function" class="form-control">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h4>Facebook</h4>
+                                        <input type="text" name="facebook" id="facebook" class="form-control">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h4>Git</h4>
+                                        <input type="text" name="git" id="git" class="form-control">
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <h4>Twitter</h4>
+                                        <input type="text" name="twitter" id="twitter" class="form-control">
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                                    <button type="submit" name="send" class="btn btn-primary">Сохранить</button>
+                                </div>
+                            </form>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
 
             </div> <!-- END Wraper -->

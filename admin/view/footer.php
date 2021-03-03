@@ -46,7 +46,7 @@
 		<!-- Modal-Effect -->
         <script src="../view/assets/plugins/modal-effect/js/classie.js"></script>
         <script src="../view/assets/plugins/modal-effect/js/modalEffects.js"></script>
-        <script src="../view/assets/js/jquery.app.js"></script>
+        <!-- <script src="../view/assets/js/jquery.app.js"></script> --> <!-- не сворачивается sidebar -->
 
         <!--form validation init-->
 		<script src="../view/assets/plugins/summernote/summernote.min.js"></script>

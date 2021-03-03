@@ -49,6 +49,17 @@ class CController {
 		$result = $data->SetUserEdit($id, $img, $name, $function, $facebook, $git, $twitter);
 		return $result;
 	}
+	public function SetUserAdd($dat) {
+		$data = new CModel();
+		$result = $data->SetUserAdd($dat);
+		return $result;
+	}
+
+	public function GetRecentNews() {
+		$data = new CModel();
+		$result = $data->GetRecentNews();
+		return $result;
+	}
 
 	public function SetNewsEdit($id, $img, $title, $text) {
 		$data = new CModel();
@@ -86,9 +97,27 @@ class CController {
 		return $result;
 	}
 
+	public function GetCountEmployee() {
+		$data = new CModel();
+		$result = $data->GetCountEmployee();
+		return $result;
+	}
+
 	public function GetRecentPost() {
 		$data = new CModel();
 		$result = $data->GetRecentPost();
+		return $result;
+	}
+
+	public function GetCountPost() {
+		$data = new CModel();
+		$result = $data->GetCountPost();
+		return $result;
+	}
+
+	public function GetCountNews() {
+		$data = new CModel();
+		$result = $data->GetCountNews();
 		return $result;
 	}
 

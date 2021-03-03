@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<link rel="shortcut icon" href="view/assets/img/icon.png">
+		<link rel="shortcut icon" href="../view/assets/img/icon.png">
 
 		<title>Админка</title>
 
